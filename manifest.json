@@ -1,0 +1,21 @@
+{
+  "name": "Claude Project DOM Inspector",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": ["https://*.anthropic.com/*", "https://*.claude.ai/*"],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.anthropic.com/project/*",
+        "https://*.claude.ai/project/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  }
+}
